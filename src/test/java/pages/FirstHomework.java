@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 
 import java.io.File;
@@ -46,42 +47,51 @@ public class FirstHomework {
                          address = faker.address().fullAddress(),
                          subject = getRandomSubject();
 
+    @Step ("Открытие главной страницы")
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
          formTitle.shouldHave(text(pageTitle));
     }
 
+    @Step("Заполнение полей ФИО")
     public void fillNameFields() {
         firstNameField.setValue(firstName);
         lastNameFiled.setValue(lastName);
     }
 
+    @Step("Заполнение поля email")
     public void fillEmailField() {
         emailField.setValue(email);
     }
 
+    @Step("Заполнение пола")
     public void chooseGender() {
         maleGenderRadioButton.shouldBe(Condition.exist).click();
     }
 
+    @Step("Заполнение поля мобильного телефона")
     public void fillMobileNumberField() {
         mobileNumberField.shouldBe(visible).setValue(phoneNumber);
     }
 
+    @Step("Выбор предметов")
     public void chooseSubjects() {
         subjectsField.setValue(subject);
         firstSubjectResult.click();
     }
 
+    @Step("Выбор хобби")
     public void chooseHobbies() {
         hobbiesCheckbox.$(byText("Sports")).click();
         hobbiesCheckbox.$(byText("Reading")).click();
     }
 
+    @Step("Загрузка картинки")
     public void uploadPicture() {
         fileForm.uploadFile(new File("src/test/java/resources/elon_musk.jpg"));
     }
-    
+
+    @Step("Заполнение адреса")
     public void fillFullAddress() {
         addressField.setValue(address);
         closeAdButton.click();
@@ -90,11 +100,13 @@ public class FirstHomework {
         cityDropdown.click();
         firstCityOption.click();
     }
-    
+
+    @Step("Клик сабмита")
     public void clickSubmitButton() {
         submitButton.click();
     }
-    
+
+    @Step("Проверка результатов")
     public void checkResultTable() {
         resultTableTitle.shouldBe(visible).shouldHave(text(thanksTableMessage));
         resultTable.$(byText(fullNameLineTitle)).shouldBe(exist);
