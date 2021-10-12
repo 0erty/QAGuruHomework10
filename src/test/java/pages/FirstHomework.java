@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
+import org.junit.jupiter.api.Test;
 import pages.components.CalendarComponent;
 
 import java.io.File;
@@ -129,5 +130,20 @@ public class FirstHomework {
         resultTable.$(byText(address)).shouldBe(exist);
         resultTable.$(byText(stateAndCityLimeTitle)).shouldBe(exist);
         resultTable.$(byText("Rajasthan Jaiselmer")).shouldBe(exist);
+    }
+
+    @Test
+    void studentFormTest() {
+        openPage();
+        fillNameFields();
+        fillEmailField();
+        chooseGender();
+        fillMobileNumberField();
+        chooseSubjects();
+        chooseHobbies();
+        uploadPicture();
+        fillFullAddress();
+        clickSubmitButton();
+        checkResultTable();
     }
 }
