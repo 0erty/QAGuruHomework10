@@ -3,7 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.FirstHomework;
 
-public class FirstHomeworkTest {
+public class FirstHomeworkTest extends TestBase {
     FirstHomework firstHomework = new FirstHomework();
 
     @Test

@@ -12,7 +12,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll(){
-        SelenideLogger.addListener("Allure", new AllureSelenide() );
+        SelenideLogger.addListener("Allure", new AllureSelenide());
 
         Configuration.startMaximized = true;
         DesiredCapabilities capabilities = new DesiredCapabilities();
