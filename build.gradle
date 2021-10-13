@@ -26,5 +26,6 @@ allure {
 }
 
 tasks.withType(Test) {
+    scanForTestClasses = false
     useJUnitPlatform()
 }

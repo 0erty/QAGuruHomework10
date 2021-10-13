@@ -131,19 +131,4 @@ public class FirstHomework {
         resultTable.$(byText(stateAndCityLimeTitle)).shouldBe(exist);
         resultTable.$(byText("Rajasthan Jaiselmer")).shouldBe(exist);
     }
-
-    @Test
-    void studentFormTest() {
-        openPage();
-        fillNameFields();
-        fillEmailField();
-        chooseGender();
-        fillMobileNumberField();
-        chooseSubjects();
-        chooseHobbies();
-        uploadPicture();
-        fillFullAddress();
-        clickSubmitButton();
-        checkResultTable();
-    }
 }
